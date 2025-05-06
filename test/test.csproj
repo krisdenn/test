@@ -46,18 +46,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminForm.cs" />
-    <Compile Include="ChefForm.cs" />
-    <Compile Include="CustomerForm.cs" />
-    <Compile Include="CustomerLoginForm.cs" />
-    <Compile Include="EmployeeLoginForm.cs" />
-    <Compile Include="MDIParent.cs" />
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChefForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnifiedLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistrationForm.cs" />
+    <Compile Include="RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Session.cs" />
     <Compile Include="SimpleDataStore.cs" />
-    <Compile Include="WaiterForm.cs" />
+    <Compile Include="WaiterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

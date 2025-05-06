@@ -54,7 +54,7 @@ namespace RestaurantSystem
 
             var customer = SimpleDataStore.Customers
                 .FirstOrDefault(c => c.Username.Equals(username, StringComparison.OrdinalIgnoreCase)
-                                    && c.Password == password);
+                                  && c.Password == password);
 
             if (customer != null)
             {
@@ -62,8 +62,12 @@ namespace RestaurantSystem
                 Session.CurrentUserRole = "Customer";
                 MessageBox.Show("Customer login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Update status and open CustomerForm.
                 if (this.MdiParent is MDIParent mdi)
+                {
                     mdi.UpdateStatus($"Current User: {Session.CurrentUserName} ({Session.CurrentUserRole})");
+                    mdi.OpenForm(new CustomerForm());
+                }
 
                 this.Close();
             }

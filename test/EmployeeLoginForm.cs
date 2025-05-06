@@ -49,7 +49,7 @@ namespace RestaurantSystem
 
             var employee = SimpleDataStore.Employees
                 .FirstOrDefault(emp => emp.Username.Equals(username, StringComparison.OrdinalIgnoreCase)
-                                    && emp.Password == password);
+                                     && emp.Password == password);
 
             if (employee != null)
             {
@@ -57,9 +57,24 @@ namespace RestaurantSystem
                 Session.CurrentUserRole = employee.Role;
                 MessageBox.Show("Employee login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Update status in the MDI parent if available.
+                // Update status and open the corresponding form.
                 if (this.MdiParent is MDIParent mdi)
+                {
                     mdi.UpdateStatus($"Current User: {Session.CurrentUserName} ({Session.CurrentUserRole})");
+
+                    if (employee.Role.Equals("Chef", StringComparison.OrdinalIgnoreCase))
+                    {
+                        mdi.OpenForm(new ChefForm());
+                    }
+                    else if (employee.Role.Equals("Waiter", StringComparison.OrdinalIgnoreCase))
+                    {
+                        mdi.OpenForm(new WaiterForm());
+                    }
+                    else if (employee.Role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                    {
+                        mdi.OpenForm(new AdminForm());
+                    }
+                }
 
                 this.Close();
             }

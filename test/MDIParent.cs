@@ -64,7 +64,8 @@ namespace RestaurantSystem
 
             // Create the StatusStrip.
             StatusStrip statusStrip = new StatusStrip();
-            statusLabel = new ToolStripStatusLabel("Current User: None") { Name = "StatusLabel" };
+            statusLabel = new ToolStripStatusLabel("Current User: None")
+            { Name = "StatusLabel" };
             statusStrip.Items.Add(statusLabel);
             statusStrip.Dock = DockStyle.Bottom;
             this.Controls.Add(statusStrip);
@@ -78,13 +79,8 @@ namespace RestaurantSystem
             notifyIcon.ShowBalloonTip(3000);
         }
 
-        public void UpdateStatus(string text)
-        {
-            if (statusLabel != null)
-                statusLabel.Text = text;
-        }
-
-        private void OpenForm(Form childForm)
+        // Update the access modifier here to public.
+        public void OpenForm(Form childForm)
         {
             // Open only one instance per form type.
             foreach (Form frm in this.MdiChildren)
@@ -97,6 +93,12 @@ namespace RestaurantSystem
             }
             childForm.MdiParent = this;
             childForm.Show();
+        }
+
+        public void UpdateStatus(string text)
+        {
+            if (statusLabel != null)
+                statusLabel.Text = text;
         }
 
         private void LogoutMenuItem_Click(object sender, EventArgs e)
@@ -112,5 +114,15 @@ namespace RestaurantSystem
         {
             Application.Exit();
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // Create an instance of the UnifiedLoginForm, set its MDI parent, and show it.
+            UnifiedLoginForm loginForm = new UnifiedLoginForm();
+            loginForm.MdiParent = this;
+            loginForm.Show();
+        }
+
     }
 }
