@@ -1,9 +1,10 @@
 using System;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class RegistrationForm : Form
+    public partial class RegistrationForm : MetroForm
     {
         private TextBox txtUsername;
         private TextBox txtPassword;

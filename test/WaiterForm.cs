@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class WaiterForm : Form
+    public partial class WaiterForm : MetroForm
     {
         private DataGridView dgvOrders;
         private Button btnMarkServed;

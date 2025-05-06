@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class CustomerLoginForm : Form
+    public partial class CustomerLoginForm : MetroForm
     {
         private TextBox txtUsername;
         private TextBox txtPassword;

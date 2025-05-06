@@ -10,7 +10,19 @@ namespace RestaurantSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIParent());
+
+            using (UnifiedLoginForm loginForm = new UnifiedLoginForm())
+            {
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    // The MDI parent starts **ONLY IF** login is successful
+                    Application.Run(new MDIParent());
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
 }

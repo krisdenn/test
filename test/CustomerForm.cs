@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class CustomerForm : Form
+    public partial class CustomerForm : MetroForm
     {
         private ComboBox cmbMenu;
         private Button btnPlaceOrder;

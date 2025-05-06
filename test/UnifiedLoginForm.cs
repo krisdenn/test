@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class UnifiedLoginForm : Form
+    public partial class UnifiedLoginForm : MetroForm
     {
         private TextBox txtUsername;
         private TextBox txtPassword;
@@ -18,7 +19,7 @@ namespace RestaurantSystem
 
         private void InitializeComponent()
         {
-            this.Text = "Login";
+            this.Text = "Restaurant Central";
             this.Width = 300;
             this.Height = 220;
 
@@ -73,7 +74,7 @@ namespace RestaurantSystem
             btnRegister = new Button
             {
                 Text = "Register",
-                Left = 190,
+                Left = 170,
                 Top = 110,
                 Width = 80
             };
@@ -106,7 +107,7 @@ namespace RestaurantSystem
                 Session.CurrentUserName = employee.Username;
                 Session.CurrentUserRole = employee.Role;
 
-                MessageBox.Show("Employee login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(" login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // If the UnifiedLoginForm is opened as an MDI child, update status and open the corresponding employee form.
                 if (this.MdiParent is MDIParent mdi)

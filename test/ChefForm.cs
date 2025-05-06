@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class ChefForm : Form
+    public partial class ChefForm : MetroForm
     {
         private DataGridView dgvOrders;
         private NumericUpDown nudPrepTime;
